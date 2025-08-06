@@ -1,4 +1,4 @@
-package com.uniper.uniper.config;
+package com.uniper.uniper.global.config;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
