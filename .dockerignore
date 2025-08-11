@@ -1,0 +1,14 @@
+node_modules
+npm-debug.log
+.git
+.gitignore
+.env
+README.md
+Dockerfile
+.dockerignore
+build/
+.gradle/
+.idea/
+*.log
+target/
+src/main/generated/
