@@ -1,4 +1,4 @@
-package com.uniper.uniper.storage.nosql;
+package com.uniper.uniper.storage.nosql.entity;
 
 import lombok.Getter;
 import lombok.Setter;

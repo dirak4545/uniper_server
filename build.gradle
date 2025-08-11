@@ -43,6 +43,9 @@ dependencies {
     // Lombok
     implementation 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
+    // PDF processing
+    implementation 'org.apache.pdfbox:pdfbox:3.0.1'
 }
 
 tasks.named('test') {
