@@ -1,5 +1,10 @@
 package com.uniper.uniperai.nosql;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -19,6 +24,11 @@ import java.time.LocalDateTime;
 @CompoundIndexes({
         @CompoundIndex(name = "doc_chunk_idx", def = "{'document_id': 1, 'chunk_index': 1}")
 })
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class TextChunk {
 
     @Id
@@ -52,6 +62,7 @@ public class TextChunk {
     private Long courseId;  // 빠른 검색을 위한 과목 ID
 
     @Field("is_vectorized")
+    @Builder.Default
     private Boolean isVectorized = false;  // FastAPI에서 벡터화 완료 여부
 
     @Field("vector_id")
@@ -61,101 +72,8 @@ public class TextChunk {
     @Field("created_at")
     private LocalDateTime createdAt;
 
-    // Getters and Setters
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getDocumentId() {
-        return documentId;
-    }
-
-    public void setDocumentId(String documentId) {
-        this.documentId = documentId;
-    }
-
-    public Integer getChunkIndex() {
-        return chunkIndex;
-    }
-
-    public void setChunkIndex(Integer chunkIndex) {
-        this.chunkIndex = chunkIndex;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
     public void setContent(String content) {
         this.content = content;
         this.chunkSize = content != null ? content.length() : 0;
-    }
-
-    public Integer getChunkSize() {
-        return chunkSize;
-    }
-
-    public void setChunkSize(Integer chunkSize) {
-        this.chunkSize = chunkSize;
-    }
-
-    public Integer getPageNumber() {
-        return pageNumber;
-    }
-
-    public void setPageNumber(Integer pageNumber) {
-        this.pageNumber = pageNumber;
-    }
-
-    public Integer getStartPosition() {
-        return startPosition;
-    }
-
-    public void setStartPosition(Integer startPosition) {
-        this.startPosition = startPosition;
-    }
-
-    public Integer getEndPosition() {
-        return endPosition;
-    }
-
-    public void setEndPosition(Integer endPosition) {
-        this.endPosition = endPosition;
-    }
-
-    public Long getCourseId() {
-        return courseId;
-    }
-
-    public void setCourseId(Long courseId) {
-        this.courseId = courseId;
-    }
-
-    public Boolean getIsVectorized() {
-        return isVectorized;
-    }
-
-    public void setIsVectorized(Boolean isVectorized) {
-        this.isVectorized = isVectorized;
-    }
-
-    public String getVectorId() {
-        return vectorId;
-    }
-
-    public void setVectorId(String vectorId) {
-        this.vectorId = vectorId;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
     }
 }
