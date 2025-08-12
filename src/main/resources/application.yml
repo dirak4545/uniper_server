@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/uniperDB
+    url: jdbc:mysql://mysql:3306/uniperDB
     username: uniper
     password: 0000
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -16,7 +16,7 @@ spring:
   #MongoDB
   data:
     mongodb:
-      uri: mongodb://localhost:27017/uniperDB
+      uri: mongodb://uniper:0000@mongodb:27017/uniperDB
       database: uniperDB
 
 springdoc:

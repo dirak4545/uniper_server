@@ -4,6 +4,7 @@ import com.uniper.uniper.storage.nosql.entity.PdfDocument;
 import com.uniper.uniper.storage.nosql.repository.PdfDocumentRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.pdfbox.Loader;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.text.PDFTextStripper;
 import org.springframework.stereotype.Service;
@@ -81,7 +82,7 @@ public class PdfService {
         
         log.info("PDF 업로드 시작: 파일명={}, 크기={}", file.getOriginalFilename(), file.getSize());
         
-        try (PDDocument document = PDDocument.load(file.getInputStream())) {
+        try (PDDocument document = Loader.loadPDF(file.getBytes())) {
             PDFTextStripper textStripper = new PDFTextStripper();
             String fullText = textStripper.getText(document);
             int totalPages = document.getNumberOfPages();
