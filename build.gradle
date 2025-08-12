@@ -32,7 +32,9 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 
     // QueryDSL for MongoDB
-    implementation 'com.querydsl:querydsl-mongodb:5.0.0'
+    implementation('com.querydsl:querydsl-mongodb:5.0.0') {
+        exclude group: 'org.mongodb', module: 'mongo-java-driver'
+    }
 
     // QueryDSL
     implementation 'com.querydsl:querydsl-jpa:5.0.0:jakarta'
@@ -46,6 +48,9 @@ dependencies {
 
     // PDF processing
     implementation 'org.apache.pdfbox:pdfbox:3.0.1'
+    
+    // Swagger
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.2.0'
 }
 
 tasks.named('test') {
